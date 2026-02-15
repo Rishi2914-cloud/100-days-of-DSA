@@ -1,16 +1,20 @@
-void reverseString(char* s, int sSize) 
+int fib(int n) 
 {
-    int left = 0;
-    int right = sSize - 1;
-    char temp;
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
 
-    while (left < right)
+    int prev1 = 0;   
+    int prev2 = 1;  
+    int current = 0;
+
+    for (int i = 2; i <= n; i++)
     {
-        temp = s[left];
-        s[left] = s[right];
-        s[right] = temp;
-
-        left++;
-        right--;
+        current = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = current;
     }
+
+    return current;
 }
